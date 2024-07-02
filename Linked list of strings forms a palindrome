@@ -1,0 +1,30 @@
+//main given function 
+bool compute(Node* head) {
+        string combinestring=tostringconcat(head);
+        return ispalindrome(combinestring);
+    }
+
+    // function to convert linked list to string
+    string tostringconcat(Node* head){
+        string result;
+        Node* current=head;
+        while(current!=nullptr){
+            result+=current->data;
+            current=current->next;
+        }
+        return result;
+    }
+
+  // function to check converted string is palindrome or not
+    bool ispalindrome(string str){
+        int left=0;
+        int right=str.length()-1;
+        while(left<right){
+            if(str[left]!=str[right]){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
