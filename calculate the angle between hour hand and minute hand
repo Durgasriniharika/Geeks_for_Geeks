@@ -1,0 +1,14 @@
+#include <bits/stdc++.h> 
+using namespace std;
+int findAngle(int hour, int minute) {
+    if(hour>=12) hour-=12;
+
+    double hour_pos=(hour*30)+(minute*0.5);
+    double min_pos=minute*6;
+
+    double angle=abs(hour_pos-min_pos);
+
+    if(angle>180) angle=360-angle;
+
+    return floor(angle);
+}
