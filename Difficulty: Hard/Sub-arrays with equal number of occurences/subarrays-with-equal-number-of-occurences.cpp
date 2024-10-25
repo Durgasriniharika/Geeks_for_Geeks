@@ -9,16 +9,32 @@ using namespace std;
 class Solution {
   public:
     int sameOccurrence(vector<int>& arr, int x, int y) {
-        map<int,int>mp;
-        mp[0]=1;
-        int count=0,res=0;
-        for(auto it:arr){
-            if(it==x)count++;
-            if(it==y)count--;
-            if(mp[count])res+=mp[count];
-            mp[count]+=1;
-        }
-        return res;
+      
+        unordered_map<int,int>mp;
+       
+       int x_cnt=0,y_cnt=0;
+       
+       int ans=0;
+       
+       mp[0]=1;
+       
+       for(auto num:arr){
+           
+           if(num==x){
+               
+               x_cnt++;
+           }
+           if(num==y){
+               
+               y_cnt++;
+           }
+           
+           ans+=mp[x_cnt-y_cnt];
+           
+           mp[x_cnt-y_cnt]++;
+       }
+       
+       return ans;
     }
 };
 
