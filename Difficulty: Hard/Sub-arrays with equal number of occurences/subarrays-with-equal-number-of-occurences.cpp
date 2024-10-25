@@ -13,7 +13,7 @@ class Solution {
         mp[0]=1;
         int count=0,res=0;
         for(auto it:arr){
-            if(it==x)co++;
+            if(it==x)count++;
             if(it==y)count--;
             if(mp[count])res+=mp[count];
             mp[count]+=1;
