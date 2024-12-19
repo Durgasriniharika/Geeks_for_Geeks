@@ -11,7 +11,7 @@ using namespace std;
 class Solution {
   public:
     int kthMissing(vector<int> &arr, int k) {
-       unordered_set<int>s;
+       unordered_set<int>s(arr.begin(),arr.end());
        int maxi=*max_element(arr.begin(),arr.end());
        for(int it:arr){
            s.insert(it);
@@ -29,6 +29,7 @@ class Solution {
        
     }
 };
+
 
 //{ Driver Code Starts.
 
