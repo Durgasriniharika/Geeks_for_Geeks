@@ -4,16 +4,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+vector<int> inputLine() {
+    string str;
+    getline(cin, str);
+    stringstream ss(str);
+    int num;
+    vector<int> res;
+    while (ss >> num) {
+        res.push_back(num);
+    }
+    return res;
+}
+
 
 // } Driver Code Ends
-// User function Template for C++
+//Back-end complete function Template for C++
 
-class Solution
-{
-    public:
-    
+class Solution {
+  public:
+
     // Function to reverse first k elements of a queue.
-    queue<int> modifyQueue(queue<int> q, int k) {
+    queue<int> modifyQueue(queue<int> &q, int k) {
+        // code here
         if(q.empty() || k>q.size() || k<=0) return q;
         //int n=q.size();
         stack<int>s;
@@ -40,15 +52,15 @@ class Solution
 int main() {
     int t;
     cin >> t;
+    cin.ignore();
     while (t-- > 0) {
-        int n, k;
-        cin >> n >> k;
+        int k;
+        cin >> k;
+        cin.ignore();
         queue<int> q;
-        while (n-- > 0) {
-            int a;
-            cin >> a;
-            q.push(a);
-        }
+        vector<int> v = inputLine();
+        for (auto it : v)
+            q.push(it);
         Solution ob;
         queue<int> ans = ob.modifyQueue(q, k);
         while (!ans.empty()) {
@@ -57,8 +69,7 @@ int main() {
             cout << a << " ";
         }
         cout << endl;
-    
-cout << "~" << "\n";
-}
+        cout << "~" << endl;
+    }
 }
 // } Driver Code Ends
